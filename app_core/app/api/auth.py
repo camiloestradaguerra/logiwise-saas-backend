@@ -18,7 +18,7 @@ fake_users_db = {
         "username": "admin@example.com",
         "full_name": "Admin User",
         # Contraseña: "admin" (sha256_crypt)
-        "hashed_password": "$5$rounds=535000$QwErTyUiOp$QwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOp/",  # "admin"
+        "hashed_password": "$5$rounds=535000$vZb1lyZ5o38M1ITJ$xxvbO6BqAfbuDPB/3IqfBiO1PsWgMeiNG4b7iI7U7KA",  # "admin"
         "role": "admin",
         "disabled": False,
     },

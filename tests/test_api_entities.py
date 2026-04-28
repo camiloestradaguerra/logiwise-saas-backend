@@ -16,7 +16,7 @@ def get_token():
 
 def test_create_entity():
     token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     payload = {
         "nombre": "Cliente Demo",
         "tipo": "cliente",
@@ -31,7 +31,7 @@ def test_create_entity():
 
 def test_list_entities():
     token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     response = client.get("/entities", headers=headers)
     assert response.status_code == 200
     assert isinstance(response.json(), list)

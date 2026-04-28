@@ -16,7 +16,7 @@ def get_token():
 
 def test_create_shipment():
     token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     payload = {
         "modo": "aéreo",
         "origen": "BOG",
@@ -34,14 +34,14 @@ def test_create_shipment():
 
 def test_list_shipments():
     token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     response = client.get("/shipments", headers=headers)
     assert response.status_code == 200
     assert isinstance(response.json(), list)
 
 def test_update_shipment():
     token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     # Crear primero
     payload = {
         "modo": "marítimo",
@@ -62,7 +62,7 @@ def test_update_shipment():
 
 def test_delete_shipment():
     token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     # Crear primero
     payload = {
         "modo": "terrestre",

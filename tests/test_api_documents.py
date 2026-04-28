@@ -16,7 +16,7 @@ def get_token():
 
 def test_create_document():
     token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     payload = {
         "shipment_id": 1,
         "tipo": "BL",
@@ -27,7 +27,7 @@ def test_create_document():
 
 def test_list_documents():
     token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     response = client.get("/documents", headers=headers)
     assert response.status_code == 200
     assert isinstance(response.json(), list)

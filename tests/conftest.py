@@ -1,4 +1,16 @@
 
+import pytest
+from app_core.app.database import engine
+from app_core.app.models.models import Base
+
+@pytest.fixture(scope="session", autouse=True)
+def create_test_tables():
+    # Crear todas las tablas antes de cualquier test
+    Base.metadata.create_all(bind=engine)
+    yield
+    # Limpiar (opcional):
+    # Base.metadata.drop_all(bind=engine)
+
 """
 Fixture de pytest para base de datos temporal y datos sintéticos
 

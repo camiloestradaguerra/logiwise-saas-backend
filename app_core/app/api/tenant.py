@@ -13,8 +13,12 @@ TENANTS = {
 
 def get_tenant_from_header(request: Request):
     tenant_id = request.headers.get("X-Tenant-ID")
-    if not tenant_id or tenant_id not in TENANTS:
-        raise HTTPException(status_code=400, detail="Tenant inválido o no especificado")
+    if not tenant_id:
+        # Falta el header, se considera no autenticado
+        raise HTTPException(status_code=401, detail="Tenant header missing")
+    if tenant_id not in TENANTS:
+        # Tenant inválido, se considera prohibido
+        raise HTTPException(status_code=403, detail="Tenant inválido")
     return tenant_id
 
 # Dependencia para inyectar tenant en endpoints

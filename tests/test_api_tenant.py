@@ -17,7 +17,7 @@ def get_token():
 def test_tenant_isolation():
     token = get_token()
     # Crear shipment con tenant 1
-    headers1 = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers1 = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     payload = {
         "modo": "aéreo",
         "origen": "BOG",
@@ -30,6 +30,6 @@ def test_tenant_isolation():
     }
     r1 = client.post("/shipments", json=payload, headers=headers1)
     # Listar con tenant 2 (no debería ver el shipment anterior)
-    headers2 = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "2"}
+    headers2 = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant2"}
     r2 = client.get("/shipments", headers=headers2)
     assert all(s["origen"] != "BOG" for s in r2.json())

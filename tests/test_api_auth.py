@@ -23,7 +23,7 @@ def test_access_protected_without_token():
     assert response.status_code in (401, 403)
 
 def test_access_protected_with_invalid_token():
-    headers = {"Authorization": "Bearer invalidtoken", "X-Tenant-ID": "1"}
+    headers = {"Authorization": "Bearer invalidtoken", "X-Tenant-ID": "tenant1"}
     response = client.get("/shipments", headers=headers)
     assert response.status_code in (401, 403)
 

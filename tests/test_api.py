@@ -40,7 +40,7 @@ def test_protected_endpoint():
     if login.status_code != 200:
         pytest.skip("No se pudo autenticar usuario de prueba")
     token = login.json()["access_token"]
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     # Ajusta el endpoint a uno protegido real
     response = client.get("/shipments", headers=headers)
     assert response.status_code in (200, 403, 404)

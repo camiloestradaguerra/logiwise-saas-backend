@@ -16,14 +16,14 @@ def get_token():
 
 def test_create_shipment_missing_fields():
     token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     payload = {"origen": "BOG"}  # Falta info obligatoria
     response = client.post("/shipments", json=payload, headers=headers)
     assert response.status_code in (400, 422)
 
 def test_create_duplicate_entity():
     token = get_token()
-    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "1"}
+    headers = {"Authorization": f"Bearer {token}", "X-Tenant-ID": "tenant1"}
     payload = {
         "nombre": "Cliente Duplicado",
         "tipo": "cliente",
