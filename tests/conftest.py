@@ -20,8 +20,8 @@ Recomendaciones:
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from app.models.models import Base
-from app.logic.datos_sinteticos import crear_datos_sinteticos
+from app_core.app.models.models import Base
+from app_core.app.logic.datos_sinteticos import crear_datos_sinteticos
 
 
 @pytest.fixture(scope="function")

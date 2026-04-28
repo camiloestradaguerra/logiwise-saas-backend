@@ -1,4 +1,4 @@
-from ..models.models import ShipmentState, Shipment
+from app_core.app.models.models import ShipmentState, Shipment
 
 class ShipmentManager:
     def __init__(self, shipment: Shipment):

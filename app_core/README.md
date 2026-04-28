@@ -1,3 +1,4 @@
+
 # Seeder y Datos Sintéticos para Desarrollo y Pruebas
 
 Este proyecto incluye un script seeder y fixtures para poblar la base de datos con datos sintéticos realistas, facilitando el desarrollo, pruebas y demos.
@@ -11,7 +12,7 @@ El seeder permite poblar la base de datos de desarrollo/demo con datos sintétic
 Pobla la base de datos con datos para todos los tenants y 10 shipments por entidad:
 
 ```
-python nuevaflo_core/seeder.py
+python seeder.py
 ```
 
 ### Parámetros avanzados
@@ -25,11 +26,11 @@ Ejemplos:
 
 - Poblar 20 shipments por entidad para todos los tenants:
   ```
-  python nuevaflo_core/seeder.py --cantidad 20
+  python seeder.py --cantidad 20
   ```
 - Poblar solo para un tenant específico:
   ```
-  python nuevaflo_core/seeder.py --tenant tenant1
+  python seeder.py --tenant tenant1
   ```
 
 ## Uso en Pruebas Automatizadas (pytest)
@@ -49,7 +50,7 @@ def test_shipment_count(db_session):
 - Usa el seeder solo en entornos de desarrollo o demo, nunca en producción.
 - Los datos sintéticos se regeneran cada vez que ejecutas el seeder o los tests.
 - Para mantener los datos de prueba consistentes y aislados, cada test usa una base de datos en memoria.
-- Puedes modificar las listas de ejemplo en `nuevaflo_core/app/logic/datos_sinteticos.py` para personalizar los datos generados.
+- Puedes modificar las listas de ejemplo en `app/logic/datos_sinteticos.py` para personalizar los datos generados.
 
 ---
 

@@ -4,7 +4,7 @@ Este documento describe cómo integrar los módulos desarrollados y cómo realiz
 
 ## 1. Integración de la Aplicación FastAPI
 
-- Crea un archivo `main.py` en la raíz de `nuevaflo_core/`.
+- Crea un archivo `main.py` en la raíz de `app/`.
 - Importa y monta los routers de los endpoints definidos en `app/api/routes.py`.
 - Configura la base de datos y las dependencias necesarias.
 
@@ -21,7 +21,7 @@ Este documento describe cómo integrar los módulos desarrollados y cómo realiz
 
 ### test_cotizacion.py
 ```python
-from nuevaflo_core.app.logic.cotizacion import calcular_margen_envio
+from app.logic.cotizacion import calcular_margen_envio
 
 def test_calcular_margen_envio():
     profit, margen = calcular_margen_envio(1000, 1500, iva=0.19, retencion=0.015)
@@ -31,7 +31,7 @@ def test_calcular_margen_envio():
 
 ### test_unidades_moneda.py
 ```python
-from nuevaflo_core.app.logic.unidades_moneda import kilos_a_libras, cbm_a_peso_volumetrico, convertir_moneda
+from app.logic.unidades_moneda import kilos_a_libras, cbm_a_peso_volumetrico, convertir_moneda
 
 def test_kilos_a_libras():
     assert round(kilos_a_libras(10), 2) == 22.05

@@ -3,19 +3,19 @@ Pruebas de autenticación y autorización (login, roles, acceso protegido)
 """
 import pytest
 from fastapi.testclient import TestClient
-from app.main import app
+from app_core.main import app
 
 client = TestClient(app)
 
 def test_login_success():
-    payload = {"username": "admin", "password": "admin"}
-    response = client.post("/auth/login", json=payload)
+    payload = {"username": "admin@example.com", "password": "admin"}
+    response = client.post("/auth/token", data=payload)
     assert response.status_code == 200
     assert "access_token" in response.json()
 
 def test_login_fail():
-    payload = {"username": "admin", "password": "wrongpass"}
-    response = client.post("/auth/login", json=payload)
+    payload = {"username": "admin@example.com", "password": "wrongpass"}
+    response = client.post("/auth/token", data=payload)
     assert response.status_code == 401
 
 def test_access_protected_without_token():

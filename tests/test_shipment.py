@@ -3,7 +3,7 @@ Archivo legacy: los tests de envíos han sido migrados a test_api_shipments.py y
 Este archivo se mantiene solo como referencia histórica.
 """
 
-from app.models.models import Shipment
+from app_core.app.models.models import Shipment
 
 def test_shipment_count(db_session):
     shipments = db_session.query(Shipment).all()

@@ -1,7 +1,7 @@
 import random
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
-from ..models import models
+from app_core.app.models import models
 
 # Listas de ejemplo para datos sintéticos
 TENANTS = ["tenant1", "tenant2"]

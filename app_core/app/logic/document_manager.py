@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from ..models.models import Document, Shipment
+from app_core.app.models.models import Document, Shipment
 
 class DocumentManager:
     def __init__(self, shipment: Shipment, storage_dir: str):

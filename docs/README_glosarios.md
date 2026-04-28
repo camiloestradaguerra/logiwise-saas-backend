@@ -9,7 +9,7 @@ Incluye:
 - Definiciones de carga (FCL, LCL, Peso Volumétrico)
 - Otros términos prácticos
 
-Ubicación: `nuevaflo_core/docs/glosario.md`
+Ubicación: `docs/glosario.md`
 
 ---
 
@@ -29,7 +29,7 @@ Ubicación: `docs/glosario_logistico.md`
 
 **Recomendación:**
 - Usa ambos glosarios como referencia complementaria.
-- Si tienes dudas sobre un documento, impuesto o rol, consulta primero `nuevaflo_core/docs/glosario.md`.
+- Si tienes dudas sobre un documento, impuesto o rol, consulta primero `docs/glosario.md`.
 - Si buscas siglas, procesos o términos de seguimiento y transporte, consulta `docs/glosario_logistico.md`.
 
 ¿Falta algún término? ¡Sugiere una mejora en el archivo correspondiente!

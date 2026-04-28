@@ -3,7 +3,7 @@ Pruebas de endpoints de Quotes
 """
 import pytest
 from fastapi.testclient import TestClient
-from app.main import app
+from app_core.main import app
 
 client = TestClient(app)
 

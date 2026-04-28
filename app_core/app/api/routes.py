@@ -1,10 +1,10 @@
 
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
-from ..models import models
-from ..schemas import schemas
-from ..logic import cotizacion
-from .tenant import tenant_dependency
+from app_core.app.models import models
+from app_core.app.schemas import schemas
+from app_core.app.logic import cotizacion
+from app_core.app.api.tenant import tenant_dependency
 
 router = APIRouter()
 

@@ -14,7 +14,7 @@ Este archivo se mantiene solo como referencia histórica.
 
 import pytest
 from fastapi.testclient import TestClient
-from app.main import app
+from app_core.main import app
 
 client = TestClient(app)
 
@@ -25,8 +25,8 @@ def test_root_public():
 
 # Ejemplo de login (ajusta el payload según tu modelo de usuario)
 def test_login():
-    payload = {"username": "admin", "password": "admin"}
-    response = client.post("/auth/login", json=payload)
+    payload = {"username": "admin@example.com", "password": "admin"}
+    response = client.post("/auth/token", data=payload)
     # Puede ser 200 o 401 según si existen usuarios de prueba
     assert response.status_code in (200, 401)
     if response.status_code == 200:
@@ -35,8 +35,8 @@ def test_login():
 # Ejemplo de acceso protegido (ajusta el endpoint y token según tu app)
 def test_protected_endpoint():
     # Primero, login para obtener token
-    payload = {"username": "admin", "password": "admin"}
-    login = client.post("/auth/login", json=payload)
+    payload = {"username": "admin@example.com", "password": "admin"}
+    login = client.post("/auth/token", data=payload)
     if login.status_code != 200:
         pytest.skip("No se pudo autenticar usuario de prueba")
     token = login.json()["access_token"]

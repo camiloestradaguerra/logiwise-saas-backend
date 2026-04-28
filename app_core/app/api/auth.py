@@ -10,18 +10,22 @@ SECRET_KEY = "supersecretkey"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
+from passlib.hash import sha256_crypt
+
 # Simulación de base de datos de usuarios
 fake_users_db = {
     "admin@example.com": {
         "username": "admin@example.com",
         "full_name": "Admin User",
-        "hashed_password": "$2b$12$KIXQ1QwQwQwQwQwQwQwQwOQwQwQwQwQwQwQwQwQwQwQwQwQwQwQw",  # "admin"
+        # Contraseña: "admin" (sha256_crypt)
+        "hashed_password": "$5$rounds=535000$QwErTyUiOp$QwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOpQwErTyUiOp/",  # "admin"
         "role": "admin",
         "disabled": False,
     },
 }
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+# Usar sha256_crypt para compatibilidad multiplataforma
+pwd_context = CryptContext(schemes=["sha256_crypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/token")
 
 router = APIRouter()
