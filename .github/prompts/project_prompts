@@ -1,0 +1,35 @@
+Plan de Desarrollo y Prompts Estratégicos
+Fase 1: Modelado de Datos y Estructura Inicial
+Prompt:
+
+Actúa como experto en logística y bases de datos. Crea modelos de datos usando SQLAlchemy para una aplicación de transporte de carga. Necesito las tablas: Shipment (con campos para modo: aéreo/marítimo/terrestre, origen, destino, tipo de carga, estado, moneda, peso, volumen), Quote, Entity (clientes y proveedores, con datos fiscales y contacto) y Document (vinculados a un shipment). Incluye relaciones y tipos de datos adecuados para Latinoamérica (moneda, pesos, volúmenes).
+
+Fase 2: Lógica de Cotización y Margen
+Prompt:
+
+Crea una función en Python que calcule el margen de beneficio de un envío. La función debe recibir 'Costos de Compra' (buy rates), 'Tarifas de Venta' (sell rates) y considerar impuestos locales de importación/exportación comunes en Latinoamérica (IVA, retenciones simples). Devuelve el profit bruto y el porcentaje de margen.
+
+Fase 3: Conversión de Unidades y Multimoneda
+Prompt:
+
+Implementa utilidades en Python para convertir automáticamente entre kilos y libras, y entre metros cúbicos (CBM) y peso volumétrico. Además, agrega soporte para registrar gastos en USD y moneda local (ejemplo: CLP, COP), permitiendo ingresar una tasa de cambio de referencia.
+
+Fase 4: Gestión de Estados y Tracking de Envíos
+Prompt:
+
+Genera una clase ShipmentManager que gestione el ciclo de vida de un envío: Draft → Quoted → Booked → In Transit → Delivered → Invoiced. Incluye validaciones para que no se pueda facturar un envío que no ha sido entregado o que no tiene documentos cargados.
+
+Fase 5: Gestión de Documentos Logísticos
+Prompt:
+
+Crea un sistema en Python para asociar y almacenar documentos logísticos (como BL, AWB, Factura Comercial) a cada envío. Permite cargar, listar y validar la existencia de documentos requeridos antes de avanzar de estado.
+
+Fase 6: Endpoints FastAPI
+Prompt:
+
+Genera endpoints REST usando FastAPI para gestionar Shipments, Quotes, Entities y Documents. Incluye rutas para crear, listar, actualizar y eliminar cada entidad, y para cambiar el estado de un envío.
+
+Fase 7: Diccionario de Términos Logísticos
+Prompt:
+
+Crea un archivo Markdown en la carpeta docs/ con un glosario de términos logísticos relevantes para Latinoamérica, incluyendo definiciones de BL, AWB, Incoterms, tipos de carga, etc.

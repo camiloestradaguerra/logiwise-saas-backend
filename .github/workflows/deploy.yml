@@ -1,0 +1,30 @@
+name: Deploy FastAPI App
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r nuevaflo_core/requirements.txt
+      - name: Run tests
+        run: |
+          pip install pytest
+          pytest
+      - name: Build Docker image
+        run: |
+          docker build -t fastapi-app .
+      # - name: Deploy step (customize for your platform)
+      #   run: |
+      #     docker run -d -p 8000:8000 fastapi-app
+      # Agrega aquí tu paso de despliegue real (Azure, AWS, etc.)
